@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Customer Information</title>
+	
+	<script>
+		var divs = [
+		  "errorfname", 
+		  "errorlname", 
+		  "errorEmail"
+		];
+		
+		function validate()
+		{
+			var inputs = [];
+			inputs[0] = document.getElementById("fname").value;
+			inputs[1] = document.getElementById("lname").value;
+			inputs[2] = document.getElementById("email").value;
+			
+
+			var errors = [];
+			errors[0] = "<span style='color:red'> *</span>"
+			errors[1] = "<span style='color:red'> *</span>"
+			errors[2] = "<span style='color:red'> *</span>"
+			
+			var i;
+			for (i=0; i<inputs.length; i++)
+			{
+				var errorMessage = errors[i];
+				var entry = divs[i];
+				
+				if (inputs[i] == "")
+					document.getElementById(entry).innerHTML = errorMessage;
+	
+				else
+					document.getElementById(entry).innerHTML = "";
+			}
+		}
+		
+</script>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+<h1>Customer Information</h1>
+<p>Please enter the information that are followed by a *:</p>
+<form>
+<body>
+	<table>
+		<tr>
+			<td> First Name:</td>
+			<td><input type="text" id="fname" onkeyup="validate();"/></td>
+			<td><div id="errorfname"></div></td>
+		</tr>
+		<tr>
+			<td> Last Name:</td>
+			<td><input type="text" id="lname" onkeyup="validate();"/></td>
+			<td><div id="errorlname"></div></td>
+		</tr>
+		<tr>
+			<td> Email:</td>
+			<td><input type="text" id="email" onkeyup="validate();"/></td>
+			<td><div id="errorEmail"></div></td>
+		</tr>
+		<tr>
+
+			<td><input type="submit" value="Submit"></td>
+			<td><div id="errorFinal"></div></td>
+		</tr>
+	</table>
+</body>
+
+
+</html>
